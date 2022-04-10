@@ -1,0 +1,17 @@
+name: learn-job-dependency
+on: [push]
+jobs:
+  job1:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo 'Hello, job1'
+  job2:
+    runs-on: ubuntu-20.04
+    needs: job1
+    steps:
+      - run: echo 'Hello, job2'
+  job3:
+    runs-on: ubuntu-20.04
+    needs: job1
+    steps:
+      - run: echo 'Hello, job3'
