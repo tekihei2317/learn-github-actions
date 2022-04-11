@@ -4,8 +4,6 @@ jobs:
   output:
     runs-on: ubuntu-20.04
     steps:
-      - run: pwd
-      - run: echo $SHELL
       - run: expr 1 + 1 > output.log
       - run: ls -l
   use-output:
@@ -13,3 +11,18 @@ jobs:
     needs: output
     steps:
       - run: ls -l
+  upload-file:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: expr 1 + 1 > output.log
+      - uses: actions/upload-artifact@v3
+        with:
+          name: output-log
+          path: output.log
+  download-file:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: output-log
+      - run: cat output-log
