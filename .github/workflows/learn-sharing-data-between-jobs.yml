@@ -1,0 +1,15 @@
+name: learn-sharing-data-between-jobs
+on: [push]
+jobs:
+  output:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: pwd
+      - run: echo $SHELL
+      - run: expr 1 + 1 > output.log
+      - run: ls -l
+  use-output:
+    runs-on: ubuntu-20.04
+    needs: output
+    steps:
+      - run: ls -l
