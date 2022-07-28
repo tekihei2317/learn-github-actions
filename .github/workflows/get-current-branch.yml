@@ -1,0 +1,15 @@
+# 参考: https://dev.classmethod.jp/articles/how-to-get-a-ref-branch-within-a-workflow-execution-in-github-actions/
+name: get-branch
+on:
+  push:
+jobs:
+  get-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 1 $GITHUB_REF # refs/heads/mainなど
+      - run: echo 2 ${{ github.ref  }} # refs/heads/mainなど
+      - run: echo 3 ${{ github.ref_name }} # mainなど
+      - run: echo 'runs only main'
+        if: ${{ github.ref_name == 'main' }}
+      - run: echo 'runs only main 2'
+        if: github.ref_name == 'main' # if条件は式構文(${{ }})を省略可能
