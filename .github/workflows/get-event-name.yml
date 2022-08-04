@@ -1,4 +1,5 @@
 name: get-event-name
+# pull_requestイベントは、デフォルトではPRの作成、reopen、PRのブランチの更新で実行される
 on:
   push:
   pull_request:
