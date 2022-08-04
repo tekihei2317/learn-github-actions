@@ -1,0 +1,10 @@
+name: get-event-name
+on:
+  push:
+  pull_request:
+  issue_comment:
+jobs:
+  get-event:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event_name }}
