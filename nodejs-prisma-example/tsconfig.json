@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUncheckedIndexedAccess": true,
+    "types": ["@types/jest", "@quramy/jest-prisma-node"]
+  },
+  "include": ["src/"],
+  "exclude": ["node_modules", "src/**/*.test.ts"]
+}
